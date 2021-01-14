@@ -5,16 +5,18 @@ import androidx.lifecycle.ViewModelProvider
 import com.burhan.androcoda.ui.dashboard.DashboardViewModel
 import com.burhan.androcoda.ui.home.HomeViewModel
 import com.burhan.androcoda.ui.notifications.NotificationsViewModel
+import com.burhan.common.data.repository.IRepository
 import com.burhan.common.domain.usecase.DownloadBitcoinPriceUseCase
 import java.lang.Exception
 
-class ViewModelFactory : ViewModelProvider.NewInstanceFactory() {
+class ViewModelFactory(private val repository: IRepository) :
+    ViewModelProvider.NewInstanceFactory() {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T =
         with(modelClass) {
             when {
                 isAssignableFrom(HomeViewModel::class.java) -> {
-                    HomeViewModel(DownloadBitcoinPriceUseCase())
+                    HomeViewModel(DownloadBitcoinPriceUseCase(repository))
                 }
                 isAssignableFrom(DashboardViewModel::class.java) -> {
                     DashboardViewModel()
