@@ -1,5 +1,8 @@
 package com.burhan.common.data.remote.model
 
+import androidx.annotation.Keep
+
+@Keep
 data class Exchange(
     var code: String = "",
     var symbol: String = "",
