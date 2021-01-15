@@ -1,11 +1,27 @@
 package com.burhan.common.data.remote.datasource
 
-import com.burhan.common.data.remote.dummy.DummyData
+import com.burhan.common.data.remote.api.ApiService
 import com.burhan.common.data.remote.model.BitCoinDTO
 import com.burhan.common.data.repository.Result
 
-class DataSource: IDataSource {
+class DataSource(private val apiService: ApiService) : IDataSource {
     override suspend fun downloadBitCoinPrice(): Result<BitCoinDTO> {
-        return Result.Success(DummyData.dummyBitCoinPrice())
+        try {
+            val response = apiService.downloadBitCoinPriceAsync().await()
+            when {
+                response.isSuccessful -> {
+                    response.body()?.let {
+                        return Result.Success(it.bpi)
+                    } ?: run {
+                        return Result.Error(java.lang.Exception())
+                    }
+                }
+                else -> {
+                    return Result.Error(java.lang.Exception(response.errorBody().toString()))
+                }
+            }
+        } catch (e: Exception) {
+            return Result.Error(java.lang.Exception())
+        }
     }
 }
