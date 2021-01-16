@@ -7,6 +7,7 @@ import com.burhan.androcoda.ui.home.HomeViewModel
 import com.burhan.androcoda.ui.notifications.NotificationsViewModel
 import com.burhan.common.data.repository.IRepository
 import com.burhan.common.domain.usecase.DownloadBitcoinPriceUseCase
+import com.burhan.common.domain.usecase.SaveBitCoinPriceUseCase
 import java.lang.Exception
 
 class ViewModelFactory(private val repository: IRepository) :
@@ -16,7 +17,12 @@ class ViewModelFactory(private val repository: IRepository) :
         with(modelClass) {
             when {
                 isAssignableFrom(HomeViewModel::class.java) -> {
-                    HomeViewModel(DownloadBitcoinPriceUseCase(repository))
+                    HomeViewModel(
+                        DownloadBitcoinPriceUseCase(
+                            repository,
+                            SaveBitCoinPriceUseCase(repository)
+                        )
+                    )
                 }
                 isAssignableFrom(DashboardViewModel::class.java) -> {
                     DashboardViewModel()
