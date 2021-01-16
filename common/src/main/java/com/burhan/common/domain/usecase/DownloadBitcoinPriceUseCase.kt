@@ -16,6 +16,5 @@ class DownloadBitcoinPriceUseCase(private val repository: IRepository) {
                 result
             }
         }
-
     }
 }

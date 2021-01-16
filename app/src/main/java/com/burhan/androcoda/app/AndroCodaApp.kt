@@ -1,8 +1,10 @@
 package com.burhan.androcoda.app
 
 import android.app.Application
+import com.burhan.common.data.local.database.AppDatabase
+import com.burhan.common.data.local.datasource.LocalDataSource
 import com.burhan.common.data.remote.api.ApiFactory
-import com.burhan.common.data.remote.datasource.DataSource
+import com.burhan.common.data.remote.datasource.RemoteDataSource
 import com.burhan.common.data.repository.IRepository
 import com.burhan.common.data.repository.Repository
 
@@ -19,8 +21,10 @@ class AndroCodaApp : Application() {
     }
 
     private fun initDatabase() {
-        val dataSource = DataSource(ApiFactory.apiService)
-        repository = Repository(dataSource)
+        val remoteDataSource = RemoteDataSource(ApiFactory.apiService)
+        val dao = AppDatabase.getInstance(this).dao()
+        val localDataSource = LocalDataSource(dao)
+        repository = Repository(remoteDataSource, localDataSource)
     }
 
     companion object {

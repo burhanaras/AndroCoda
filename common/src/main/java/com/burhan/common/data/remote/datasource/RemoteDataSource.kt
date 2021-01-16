@@ -4,7 +4,7 @@ import com.burhan.common.data.remote.api.ApiService
 import com.burhan.common.data.remote.model.BitCoinDTO
 import com.burhan.common.data.repository.Result
 
-class DataSource(private val apiService: ApiService) : IDataSource {
+class RemoteDataSource(private val apiService: ApiService) : IRemoteDataSource {
     override suspend fun downloadBitCoinPrice(): Result<BitCoinDTO> {
         try {
             val response = apiService.downloadBitCoinPriceAsync().await()

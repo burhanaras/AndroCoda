@@ -1,16 +1,20 @@
 package com.burhan.common.data.repository
 
-import com.burhan.common.data.local.datasource.model.BitCoinEntity
-import com.burhan.common.data.remote.datasource.IDataSource
+import com.burhan.common.data.local.datasource.LocalDataSource
+import com.burhan.common.data.local.entity.BitCoinEntity
+import com.burhan.common.data.remote.datasource.IRemoteDataSource
 import com.burhan.common.data.remote.model.BitCoinDTO
 
-class Repository(private val dataSource: IDataSource) : IRepository {
+class Repository(
+    private val remoteDataSource: IRemoteDataSource,
+    private val localDataSource: LocalDataSource
+) : IRepository {
 
     override suspend fun downloadBitCoinPrice(): Result<BitCoinDTO> {
-        return dataSource.downloadBitCoinPrice()
+        return remoteDataSource.downloadBitCoinPrice()
     }
 
     override suspend fun saveBitCoinPrice(bitCoinEntity: BitCoinEntity) {
-        TODO("Not yet implemented")
+        localDataSource.save(bitCoinEntity)
     }
 }
