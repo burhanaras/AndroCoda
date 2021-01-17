@@ -8,7 +8,6 @@ import com.burhan.androcoda.ui.notifications.NotificationsViewModel
 import com.burhan.common.data.repository.IRepository
 import com.burhan.common.domain.usecase.DownloadBitcoinPriceUseCase
 import com.burhan.common.domain.usecase.SaveBitCoinPriceUseCase
-import java.lang.Exception
 
 class ViewModelFactory(private val repository: IRepository) :
     ViewModelProvider.NewInstanceFactory() {
