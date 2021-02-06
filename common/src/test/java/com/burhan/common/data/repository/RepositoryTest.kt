@@ -21,11 +21,11 @@ import java.net.ConnectException
 @ExperimentalCoroutinesApi
 class RepositoryTest {
 
-    private lateinit var remoteDataSource: IRemoteDataSource
-    private lateinit var localDataSource: ILocalDataSource
-
     // class under test
     private lateinit var repository: IRepository
+
+    private lateinit var remoteDataSource: IRemoteDataSource
+    private lateinit var localDataSource: ILocalDataSource
 
     @Before
     fun setUp() {
