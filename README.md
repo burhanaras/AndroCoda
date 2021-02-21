@@ -1,8 +1,9 @@
 
 💳 💵 🏦 ₿
-
+<center>
 # AndroCoda
-An app to show modern Android development
+The best architecture for Android apps
+</center>
 
 Developed by [Burhan ARAS] with all the love on planet.
 
