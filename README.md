@@ -15,7 +15,7 @@ Today, we present you **AndroCoda:** the best architecture for Android apps
 
 ## Architecture
 
-We have developed this application using **AndroCoda Architecture** architecture which is an improved version of Clean Architecture + MVVM. We haved used the **Kotlin** programming language using industry-proven tools and libraries.
+We have developed this application using **AndroCoda Architecture** which is an improved version of Clean Architecture + MVVM. We haved used the **Kotlin** programming language using industry-proven tools and libraries.
 
 The main players in the MVVM pattern are:
   - **The View** — that informs the ViewModel about the user’s actions
