@@ -14,7 +14,7 @@ import com.burhan.androcoda.core.extension.getViewModelFactory
 class MainActivity : AppCompatActivity() {
 
     private val viewModel: MainViewModel by viewModels { getViewModelFactory() }
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -30,5 +30,7 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        viewModel.loadData()
     }
 }

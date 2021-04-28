@@ -11,22 +11,25 @@ class MainViewModel(app: AndroCodaApp) : AndroidViewModel(app) {
 
     private val dailyWorker = WorkManager.getInstance(app)
 
-    init {
+    fun loadData(){
         startDailyWorkManager()
     }
 
     private fun startDailyWorkManager() {
         Log.d(TAG, "startDailyWorkManager() called")
-        val constraints = Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build()
+        val constraints =
+            Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build()
 
         val workRequestPeriodic = PeriodicWorkRequestBuilder<DailyWorker>(1, TimeUnit.DAYS)
             .setConstraints(constraints)
             .addTag(TAG)
             .build()
 
-        dailyWorker.enqueueUniquePeriodicWork(UNIQUE_NAME_DAILY_WORKER,
+        dailyWorker.enqueueUniquePeriodicWork(
+            UNIQUE_NAME_DAILY_WORKER,
             ExistingPeriodicWorkPolicy.REPLACE,
-            workRequestPeriodic)
+            workRequestPeriodic
+        )
     }
 
     companion object {
