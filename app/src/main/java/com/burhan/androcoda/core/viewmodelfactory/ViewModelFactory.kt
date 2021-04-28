@@ -2,6 +2,8 @@ package com.burhan.androcoda.core.viewmodelfactory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.burhan.androcoda.app.AndroCodaApp
+import com.burhan.androcoda.ui.MainViewModel
 import com.burhan.androcoda.ui.dashboard.DashboardViewModel
 import com.burhan.androcoda.ui.home.HomeViewModel
 import com.burhan.androcoda.ui.notifications.NotificationsViewModel
@@ -15,6 +17,9 @@ class ViewModelFactory(private val repository: IRepository) :
     override fun <T : ViewModel?> create(modelClass: Class<T>): T =
         with(modelClass) {
             when {
+                isAssignableFrom(MainViewModel::class.java) -> {
+                    MainViewModel(AndroCodaApp.instance)
+                }
                 isAssignableFrom(HomeViewModel::class.java) -> {
                     HomeViewModel(
                         DownloadBitcoinPriceUseCase(

@@ -1,6 +1,7 @@
 package com.burhan.androcoda.ui
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -8,9 +9,12 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.burhan.androcoda.R
+import com.burhan.androcoda.core.extension.getViewModelFactory
 
 class MainActivity : AppCompatActivity() {
 
+    private val viewModel: MainViewModel by viewModels { getViewModelFactory() }
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
