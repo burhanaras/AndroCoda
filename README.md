@@ -80,6 +80,9 @@ We have used popular, industry-proven tools and libraries :
 * SSL Pinning (https://developer.android.com/training/articles/security-config#CertificatePinning)
 * Instant App support (https://developer.android.com/topic/google-play-instant/getting-started/instant-enabled-app-bundle)
 * Shortcut Support (https://developer.android.com/guide/topics/ui/shortcuts/creating-shortcuts)
+* Sark Theme Support (https://proandroiddev.com/implementing-dark-theme-in-your-android-application-ec2b4fefb6e3)
+* Foreground Service for Heartbeat (https://developer.android.com/guide/components/foreground-services)
+* Session Refresh Support (https://medium.com/android-news/refresh-access-token-globally-using-rxjava-2-rxandroid-2-and-retrofit-2-fba6be0f11bd)
 
 
 Developed By Burhan ARAS with all the love on planet
