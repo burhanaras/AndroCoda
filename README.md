@@ -33,7 +33,9 @@ Also we have implemented a background worker using **WorkManager** to run period
 
 This design creates a consistent and pleasant user experience. Regardless of whether the user comes back to the app several minutes after they've last closed it or several days later, they instantly see a user's information that the app persists locally. If this data is stale, the app's repository module starts updating the data in the background.
 
-Architecture of SoftPos App: 
+Local data can always be kept up to dat thanks to daily work manager.
+
+Architecture of AndroCoda App: 
 ![alt text](https://github.com/burhanaras/ListenHub/blob/master/screenshots/androcoda.png "SoftPos App architecture")
 
 AndroCoda Architecture Overview:
