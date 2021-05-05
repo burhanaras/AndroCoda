@@ -6,14 +6,10 @@ import com.burhan.androcoda.getOrAwaitValueTest
 import com.burhan.common.data.remote.dummy.DummyData
 import com.burhan.common.data.repository.IRepository
 import com.burhan.common.data.repository.Result
-import com.burhan.common.domain.model.BitCoinPrice
-import com.burhan.common.domain.model.fromDTO
 import com.burhan.common.domain.usecase.DownloadBitcoinPriceUseCase
 import com.burhan.common.domain.usecase.SaveBitCoinPriceUseCase
 import com.nhaarman.mockitokotlin2.any
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.After
 import org.junit.Before
@@ -21,7 +17,6 @@ import org.junit.Test
 
 import org.junit.Assert.*
 import org.junit.Rule
-import org.mockito.Mock
 import org.mockito.Mockito
 import java.lang.Exception
 
@@ -47,7 +42,11 @@ class HomeViewModelTest {
         repository = Mockito.mock(IRepository::class.java)
         saveBitCoinPriceUseCase = SaveBitCoinPriceUseCase(repository)
         downloadBitcoinPriceUseCase =
-            DownloadBitcoinPriceUseCase(repository, saveBitCoinPriceUseCase)
+            DownloadBitcoinPriceUseCase(
+                repository,
+                saveBitCoinPriceUseCase,
+                AndroCodaApp.instance.appData
+            )
 
         viewModel = HomeViewModel(downloadBitcoinPriceUseCase)
     }

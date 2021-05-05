@@ -30,7 +30,8 @@ class DownloadBitcoinPriceUseCaseTest {
 
         downloadBitcoinPriceUseCase = DownloadBitcoinPriceUseCase(
             repository = repository,
-            saveBitCoinPriceUseCase = saveBitCoinPriceUseCase
+            saveBitCoinPriceUseCase = saveBitCoinPriceUseCase,
+            appData = AndroCodaApp.instance.appData
         )
     }
 
