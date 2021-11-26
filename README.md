@@ -36,10 +36,10 @@ This design creates a consistent and pleasant user experience. Regardless of whe
 Local data can always be kept up to dat thanks to daily work manager.
 
 Architecture of AndroCoda App: 
-![alt text](https://github.com/burhanaras/ListenHub/blob/master/screenshots/androcoda.png "SoftPos App architecture")
+![alt text](https://github.com/burhanaras/AndroCoda/blob/master/screenshots/androcoda.png "AndroCoda App Architecture")
 
 AndroCoda Architecture Overview:
-![SoftPos Architecture Diagram](https://github.com/burhanaras/ListenHub/blob/master/screenshots/architecture.jpg?raw=true)
+![AndroCoda Architecture Diagram](https://github.com/burhanaras/AndroCoda/blob/master/screenshots/architecture.jpg?raw=true)
 
 
 ## Used technologies and libraries
